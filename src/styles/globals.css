@@ -1,0 +1,185 @@
+@import "clash-grotesk.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 354 50% 5.7%;
+    --foreground: 210 40% 98%;
+    /* --background: 0 70% 50%; Adjusted to a red hue */
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 354 70% 42%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 214.2 98.47% 74.31%;
+    --secondary-foreground: 218 11% 65%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    --radius: 0.5rem;
+  }
+}
+
+/* global elements */
+@layer base {
+  html[data-scroll-orientation="horizontal"] {
+    body {
+      @apply w-fit;
+    }
+
+    [data-scroll-container] {
+      @apply flex;
+    }
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground cursor-wait;
+  }
+
+  section {
+    scroll-margin-top: 60px;
+  }
+}
+
+/* custom scrollbar */
+@layer base {
+  ::-webkit-scrollbar {
+    @apply h-2.5 w-2 transition;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    @apply bg-primary;
+  }
+}
+
+/* custom styles */
+@layer base {
+  .clash-grotesk {
+    font-family: "ClashGrotesk-Variable", sans-serif;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-red-500 to-red-500 bg-clip-text text-transparent;
+  }
+
+  .nav-active {
+    color: rgb(226 232 240) !important;
+    @apply text-sm lowercase tracking-tight text-slate-200;
+  }
+
+  .nav-link {
+    /* Remove the styles from nav-link class */
+    @apply text-sm lowercase tracking-tight text-slate-400;
+  }
+
+  /* blinking animation */
+  @keyframes blink {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  .animate-blink {
+    animation: blink 1s infinite;
+  }
+}
+
+/* text animation */
+@keyframes text-animation {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0% 100% 0);
+  }
+
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.text-anim {
+  animation: text-animation ease-in-out;
+  animation-timeline: view();
+  animation-range: entry 60% cover 40%;
+  animation-duration: 4s;
+  animation-timing-function: cubic-bezier(1, 1, 1, 1);
+}
+
+.mask-logo1, .mask-logo2 {
+  width: 10%;
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 0; */
+}
+
+.mask-logo2 {
+  z-index: -1; /*Ensure bottom image stays in the background*/
+}
+
+@media only screen and (max-width:768px){
+  .mask-logo2{
+    /* width: 20%; */
+    margin:20px  0px;
+  }
+  .body{
+    width: 20px;
+  }
+}
+
+.body {
+  position: absolute;
+  width: 10%;
+  margin-top: -25px;
+  /* cursor: default; */
+}
+
+.mask {
+  position: absolute;
+  width: 10%;
+  /* margin-left: -375px; */
+  margin-top: -20px;
+  -webkit-mask-image: url('../../public/mask.svg');
+  mask-repeat: no-repeat;
+  /* mask-position: 10%; */
+  mask-size: 50px;
+  background-color: white;
+}
