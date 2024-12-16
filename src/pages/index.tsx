@@ -1,8 +1,8 @@
 import Container from "@/components/Container";
-import { useEffect, useRef, Suspense, useState, startTransition, useDeferredValue } from "react";
+import { useEffect, useRef, Suspense, useState, startTransition} from "react";
 import styles from "@/styles/Home.module.css";
 import { Button } from "@/components/ui/button";
-import Marquee from "react-fast-marquee";
+// import Marquee from "react-fast-marquee";
 
 // import { useInView } from 'react-intersection-observer';
 // import CountUp from "react-countup";
@@ -308,14 +308,7 @@ export default function Home() {
             className="my-14 flex max-w-6xl flex-col justify-start space-y-10"
           >
             <h2 className="text-anim py-16 pb-2 text-xl font-light leading-normal tracking-tighter text-foreground xl:text-[40px]">
-              {/* I&apos;m an experienced full-stack developer proficient in{" "}
-              <Link
-                href="https://create.t3.gg/"
-                target="_blank"
-                className="underline"
-              >
-                TypeScript, Tailwind, and Next.js
-              </Link>{" "} */}
+              
               With a passion for blending creativity and motion, <span className="text-gradient">Deep Darji </span>
               founded Color & Motion to turn bold ideas into dynamic visuals. 
               Known for his innovative approach and keen eye for detailing, 
@@ -324,7 +317,7 @@ export default function Home() {
               At Color & Motion, we specialize in transforming your ideas into 
               vibrant visual experiences. 
               <br></br>
-              "At Color and Motion, we don't just create visuals; we craft experiences that stick." – Deep Darji
+              &quot;At Color and Motion, we don&apos;t just create visuals; we craft experiences that stick.&quot; – Deep Darji
             </h2>
             <div className="grid grid-cols-2 gap-8 xl:grid-cols-3" >
               {aboutStats.map((stat) => (
